@@ -1,31 +1,25 @@
 # CodeSnappy
 
-Quickly create a nice looking code snippet image with syntax highlighting.
+This is the Github repository for [CodeSnappy](https://codesnappy.io). CodeSnappy.io is a tiny webapplication that makes it easy to quickly create a nice looking code snippet image with syntax highlighting.
 
-## Project setup
+Built with [Vue.js](https://vuejs.org/), [html2canvas](http://html2canvas.hertzen.com/) and [TailwindCSS](https://tailwindcss.com/).
+
+![Example snippet](https://codesnappy.io/github/snippet-example.png)
+
+## Development instructions
+
+First install npm dependencies.
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Compiles and hot-reloads for development.
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+Compiles and minifies for production.
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
