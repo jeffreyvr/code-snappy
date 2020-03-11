@@ -1,4 +1,6 @@
-# codesnappy
+# CodeSnappy
+
+Quickly create a nice looking code snippet image with syntax highlighting.
 
 ## Project setup
 ```
