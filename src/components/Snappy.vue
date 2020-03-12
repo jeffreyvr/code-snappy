@@ -1,13 +1,18 @@
 <template>
   <div>
-    <div class="shadow-lg rounded">
+    <div>
       <div id="snappy" class="relative">
         <div class="absolute z-10 flex mt-4 ml-5">
           <span class="h-3 w-3 bg-red-500 rounded-full"></span>
           <span class="ml-2 h-3 w-3 bg-orange-300 rounded-full"></span>
           <span class="ml-2 h-3 w-3 bg-green-500 rounded-full"></span>
         </div>
-        <vue-prism-editor v-model="code" :language="language" class="block" ref="editor"></vue-prism-editor>
+        <vue-prism-editor
+          v-model="code"
+          :language="language"
+          :class="(editorGrow ? 'min-w-sm w-auto ' : 'min-w-full ') + 'max-w-full inline-block shadow-lg rounded'"
+          ref="editor"
+        ></vue-prism-editor>
       </div>
     </div>
     <div class="flex justify-between mt-6">
@@ -64,29 +69,37 @@
             </svg>
           </div>
         </div>
+        <div class="block mt-4">
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input type="checkbox" v-model="editorGrow" class="mr-2 leading-tight" />
+            <span class="text-sm">Enable Grow</span>
+          </label>
+        </div>
       </div>
-      <button
-        @click="snap"
-        class="bg-indigo-500 text-white ml-2 px-4 py-2 rounded flex items-center"
-      >
-        <svg
-          class="w-4 h-4 inline mr-2 text-gray-100"
-          viewBox="0 0 20 20"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+      <div>
+        <button
+          @click="snap"
+          class="bg-indigo-500 text-white ml-2 py-3 px-4 rounded flex items-center"
         >
-          <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
-            <g id="icon-shape">
-              <path
-                d="M0,6.00585866 C0,4.89805351 0.893899798,4 2.0048815,4 L5,4 L7,2 L13,2 L15,4 L17.9951185,4 C19.102384,4 20,4.89706013 20,6.00585866 L20,15.9941413 C20,17.1019465 19.1017876,18 18.0092049,18 L1.99079514,18 C0.891309342,18 0,17.1029399 0,15.9941413 L0,6.00585866 Z M10,16 C12.7614237,16 15,13.7614237 15,11 C15,8.23857625 12.7614237,6 10,6 C7.23857625,6 5,8.23857625 5,11 C5,13.7614237 7.23857625,16 10,16 Z M10,14 C11.6568542,14 13,12.6568542 13,11 C13,9.34314575 11.6568542,8 10,8 C8.34314575,8 7,9.34314575 7,11 C7,12.6568542 8.34314575,14 10,14 Z"
-                id="Combined-Shape"
-              />
+          <svg
+            class="w-4 h-4 inline mr-2 text-gray-100"
+            viewBox="0 0 20 20"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+              <g id="icon-shape">
+                <path
+                  d="M0,6.00585866 C0,4.89805351 0.893899798,4 2.0048815,4 L5,4 L7,2 L13,2 L15,4 L17.9951185,4 C19.102384,4 20,4.89706013 20,6.00585866 L20,15.9941413 C20,17.1019465 19.1017876,18 18.0092049,18 L1.99079514,18 C0.891309342,18 0,17.1029399 0,15.9941413 L0,6.00585866 Z M10,16 C12.7614237,16 15,13.7614237 15,11 C15,8.23857625 12.7614237,6 10,6 C7.23857625,6 5,8.23857625 5,11 C5,13.7614237 7.23857625,16 10,16 Z M10,14 C11.6568542,14 13,12.6568542 13,11 C13,9.34314575 11.6568542,8 10,8 C8.34314575,8 7,9.34314575 7,11 C7,12.6568542 8.34314575,14 10,14 Z"
+                  id="Combined-Shape"
+                />
+              </g>
             </g>
-          </g>
-        </svg>
-        Snap
-      </button>
+          </svg>
+          Snap
+        </button>
+      </div>
     </div>
 
     <modal name="download-modal" :maxWidth="700" height="auto">
@@ -94,7 +107,7 @@
         <h2 class="text-2xl text-center mb-4 text-gray-800">Your image is ready</h2>
         <img :src="this.canvas.toDataURL()" :style="'width: ' + this.canvas.width" />
         <div class="flex justify-end">
-          <button @click="download" class="bg-indigo-500 text-white ml-2 px-4 py-2 mt-4 rounded">
+          <button @click="download" class="bg-indigo-500 text-white ml-2 py-3 px-4 mt-4 rounded">
             <svg
               class="w-4 h-4 inline mr-2 text-gray-100"
               viewBox="0 0 20 20"
@@ -164,7 +177,8 @@ export default {
       code: null,
       language: "php",
       theme: "material-dark",
-      canvas: null
+      canvas: null,
+      editorGrow: false
     };
   },
   methods: {
@@ -210,7 +224,7 @@ export default {
 
 <style>
 pre[class*="language-"] {
-  @apply rounded-lg px-5 pb-6 pt-12 outline-none;
+  @apply rounded-lg px-5 pb-6 pt-12 outline-none m-0;
 }
 code[class*="language-"] {
   @apply font-mono leading-loose break-all whitespace-pre-wrap;
