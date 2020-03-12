@@ -26,14 +26,15 @@
 
       <snappy></snappy>
 
-      <footer class="mt-12 text-xs text-gray-600 leading-relaxed">
+      <footer class="mt-12 text-xs text-gray-600 leading-loose">
         <div>
           Built by
           <a href="https://vanrossum.dev" class="text-pink-500">Jeffrey van Rossum</a>
         </div>
         <div>
-          Special thanks to
+          Using 
           <a href="https://vuejs.org/" class="text-gray-800">Vue.js</a>,
+          <a href="https://github.com/koca/vue-prism-editor" class="text-gray-800">Vue Prism Editor</a>, 
           <a href="http://html2canvas.hertzen.com/" class="text-gray-800">html2canvas</a> and
           <a href="https://tailwindcss.com/" class="text-gray-800">TailwindCSS</a>
         </div>
