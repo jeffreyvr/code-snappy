@@ -10,12 +10,12 @@
         <vue-prism-editor
           v-model="code"
           :language="language"
-          :class="(editorGrow ? 'min-w-sm w-auto ' : 'min-w-full ') + 'max-w-full inline-block shadow-lg rounded'"
+          :class="(editorGrow ? 'min-w-sm w-auto ' : 'min-w-full ') + 'max-w-full inline-block'"
           ref="editor"
         ></vue-prism-editor>
       </div>
     </div>
-    <div class="flex justify-between mt-6">
+    <div class="flex justify-between mt-4">
       <div>
         <div class="relative inline-block">
           <select
@@ -69,7 +69,7 @@
             </svg>
           </div>
         </div>
-        <div class="block mt-4">
+        <div class="block mt-2">
           <label class="md:w-2/3 block text-gray-500 font-bold">
             <input type="checkbox" v-model="editorGrow" class="mr-2 leading-tight" />
             <span class="text-sm">Enable Grow</span>
