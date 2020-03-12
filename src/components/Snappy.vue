@@ -212,6 +212,6 @@ pre[class*="language-"] {
   @apply rounded-lg px-5 pb-6 pt-12 outline-none;
 }
 code[class*="language-"] {
-  @apply font-mono leading-loose;
+  @apply font-mono leading-loose break-all whitespace-pre-wrap;
 }
 </style>
