@@ -10,7 +10,7 @@
         <vue-prism-editor
           v-model="code"
           :language="language"
-          :class="(editorGrow ? 'min-w-sm w-auto ' : 'min-w-full ') + 'max-w-full inline-block'"
+          :class="(editorGrow ? 'min-w-xs w-auto ' : 'min-w-full ') + 'max-w-full inline-block'"
           ref="editor"
         ></vue-prism-editor>
       </div>
