@@ -7,7 +7,7 @@
           <span class="ml-2 h-3 w-3 bg-orange-300 rounded-full"></span>
           <span class="ml-2 h-3 w-3 bg-green-500 rounded-full"></span>
         </div>
-        <vue-prism-editor v-model="code" :language="language" class="block"></vue-prism-editor>
+        <vue-prism-editor v-model="code" :language="language" class="block" ref="editor"></vue-prism-editor>
       </div>
     </div>
     <div class="flex justify-between mt-6">
@@ -157,10 +157,11 @@ export default {
   },
   mounted() {
     this.switchTheme();
+    this.$refs.editor.$refs.pre.focus();
   },
   data() {
     return {
-      code: "// Your code goes here",
+      code: null,
       language: "php",
       theme: "material-dark",
       canvas: null
