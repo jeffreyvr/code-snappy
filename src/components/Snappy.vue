@@ -195,11 +195,9 @@ export default {
   },
   methods: {
     switchTheme() {
-      if (
-        typeof document.getElementById("theme") != "undefined" &&
-        document.getElementById("theme") != null
-      ) {
-        document.getElementById("theme").remove();
+      let theme = document.getElementById("theme");
+      if (theme != "undefined" && theme != null) {
+        theme.remove();
       }
 
       this.styleTag = document.createElement("style");
