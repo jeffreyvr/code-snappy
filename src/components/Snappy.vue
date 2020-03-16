@@ -26,13 +26,7 @@
               id="grid-state"
             >
               <option value disabled selected>Select your theme</option>
-              <option value="material-dark">Material Dark</option>
-              <option value="atom-dark">Atom Dark</option>
-              <option value="nord">Nord</option>
-              <option value="xonokai">Monokai</option>
-              <option value="github">Github</option>
-              <option value="otwell">Otwell</option>
-              <option value="material-light">Material Light</option>
+              <option v-for="(theme, key) in themes" :value="key" :key="key">{{theme.name}}</option>
             </select>
             <div
               class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
@@ -164,14 +158,45 @@ import MaterialLightTheme from "!!raw-loader!prism-themes/themes/prism-material-
 import MaterialDarkTheme from "!!raw-loader!prism-themes/themes/prism-material-dark.css";
 import NordTheme from "!!raw-loader!../assets/themes/prism-nord.css";
 import XonokaiTheme from "!!raw-loader!prism-themes/themes/prism-xonokai.css";
-let themes = {
-  github: GithubTheme,
-  "atom-dark": AtomDarkTheme,
-  xonokai: XonokaiTheme,
-  "material-light": MaterialLightTheme,
-  "material-dark": MaterialDarkTheme,
-  nord: NordTheme,
-  otwell: OtwellTheme
+import VSCodeTheme from "!!raw-loader!prism-themes/themes/prism-vs.css";
+import MaterialOceanicTheme from "!!raw-loader!prism-themes/themes/prism-material-oceanic.css";
+let themesObject = {
+  github: {
+    name: "Github Colors",
+    css: GithubTheme
+  },
+  "vs-code": {
+    name: "VS Code",
+    css: VSCodeTheme
+  },
+  "material-light": {
+    name: "Material Light",
+    css: MaterialLightTheme
+  },
+  otwell: {
+    name: "Otwell",
+    css: OtwellTheme
+  },
+  "atom-dark": {
+    name: "Atom Dark",
+    css: AtomDarkTheme
+  },
+  xonokai: {
+    name: "Xonokai",
+    css: XonokaiTheme
+  },
+  "material-dark": {
+    name: "Material Dark",
+    css: MaterialDarkTheme
+  },
+  "material-oceanic": {
+    name: "Material Oceanic",
+    css: MaterialOceanicTheme
+  },
+  nord: {
+    name: "Nord",
+    css: NordTheme
+  }
 };
 /* eslint-enable */
 
@@ -181,11 +206,13 @@ export default {
     VuePrismEditor
   },
   mounted() {
+    // this.themes = themes;
     this.switchTheme();
     this.$refs.editor.$refs.pre.focus();
   },
   data() {
     return {
+      themes: themesObject,
       code: null,
       language: "php",
       theme: "material-dark",
@@ -202,7 +229,9 @@ export default {
 
       this.styleTag = document.createElement("style");
       this.styleTag.setAttribute("id", "theme");
-      this.styleTag.appendChild(document.createTextNode(themes[this.theme]));
+      this.styleTag.appendChild(
+        document.createTextNode(this.themes[this.theme].css)
+      );
 
       document
         .getElementsByTagName("head")[0]
