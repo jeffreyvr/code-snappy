@@ -74,9 +74,13 @@
      color: #354196;
  }
  
- .token.punctuation,
+ .token.punctuation {
+    color: #393A34; /* no highlight */
+}
+
  .token.operator {
-     color: #393A34; /* no highlight */
+    color: #a9195c;
+    font-weight: bold;
  }
  
  .token.entity,
@@ -85,7 +89,6 @@
  .token.number,
  .token.boolean,
  .token.variable,
- .token.constant,
  .token.property,
  .token.regex,
  .token.inserted {
@@ -99,8 +102,10 @@
      color: #a9185c;
  }
 
- .token.class-name {
+ .token.class-name,
+ .token.constant {
      color: #0285b5;
+     font-weight: bold;
  }
 
  .token.keyword {
