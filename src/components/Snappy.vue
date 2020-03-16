@@ -214,7 +214,10 @@ export default {
     snap() {
       html2canvas(document.querySelector("#snappy"), {
         allowTaint: true,
-        backgroundColor: "rgba(0,0,0,0)"
+        backgroundColor: null,
+        scrollX: 0,
+        scrollY: -window.scrollY,
+        scale: 2
       }).then(canvas => {
         this.canvas = canvas;
 
