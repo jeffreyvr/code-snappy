@@ -114,7 +114,7 @@
       </div>
     </div>
 
-    <modal name="download-modal" :maxWidth="700" height="auto">
+    <modal name="download-modal" :maxWidth="700" height="auto" :adaptive="true" :scrollable="true">
       <div v-if="canvas" class="p-6">
         <h2 class="text-2xl text-center mb-4 text-gray-800">Your image is ready</h2>
         <img :src="this.canvas.toDataURL()" :style="'width: ' + this.canvas.width" />
