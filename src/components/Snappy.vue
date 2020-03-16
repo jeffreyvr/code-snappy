@@ -4,7 +4,7 @@
       <div class="flex justify-center">
         <div
           id="snappy"
-          :class="(resizeable ? 'min-w-xs w-auto mx-4 ' : 'min-w-full ') + 'max-w-full inline-block relative overflow-x-auto resize-x'"
+          :class="(resizeable ? 'min-w-xs w-auto mx-4 overflow-x-auto resize-x ' : 'min-w-full ') + 'max-w-full inline-block relative'"
         >
           <div class="absolute z-10 flex mt-4 ml-5 left-0">
             <span class="h-3 w-3 bg-red-500 rounded-full"></span>
