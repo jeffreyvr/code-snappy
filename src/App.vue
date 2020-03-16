@@ -23,9 +23,11 @@
         </h1>
       </div>
       <div class="mb-6 text-gray-800">Quickly make a code snippet image with CodeSnappy.</div>
+    </div>
 
-      <snappy></snappy>
+    <snappy></snappy>
 
+    <div class="container mx-auto max-w-2xl my-8">
       <footer class="mt-12 text-xs text-gray-600 leading-loose">
         <div>
           Built by
